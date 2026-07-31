@@ -1,9 +1,5 @@
 Hi 👋! My name is Gabriel and I'm a Full Stack Developer</h7>
 
-![github contribution grid animation](https://raw.githubusercontent.com/Gabr-adm/Gabr-adm/output/github-contribution-grid-snake.svg)
-
-
-
 <div align="center">
     <img height="180em" src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Gabr-adm&layout=compact&langs_count=7&theme=dark"/>
 </div>
