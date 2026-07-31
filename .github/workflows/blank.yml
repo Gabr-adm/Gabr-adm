@@ -1,0 +1,42 @@
+name: generate animation
+
+on:
+  # Run automatically every 24 hours
+  schedule:
+    - cron: "0 */24 * * *"
+
+  # Allows manual triggering
+  workflow_dispatch:
+
+  # Run on every push to the master branch
+  push:
+    branches:
+      - master
+
+jobs:
+  generate:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      # Generate the snake animation with custom colors
+      - name: Generate GitHub contribution grid snake
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ Gabr-adm }}
+          color_snake: "#00FF00" # Green snake
+          color_dots: "#000000,#000000" # White and gray dots
+          color_background: "#000000" # Black background
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+      
+
+      # Push the content to the output branch
+      - name: Push GitHub contribution grid snake
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          external_repository: ${{ github.repository }}
+          publish_dir: dist
